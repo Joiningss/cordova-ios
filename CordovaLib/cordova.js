@@ -1607,8 +1607,9 @@ exports.load = function(callback) {
         pathPrefix = '';
     }
     injectIfNecessary('cordova/plugin_list', pathPrefix + 'cordova_plugins.js', function() {
-        var moduleList = require("cordova/plugin_list");
-        handlePluginsObject(pathPrefix, moduleList, callback);
+        //do not load any plugins while cordova init
+        //var moduleList = require("cordova/plugin_list");
+        handlePluginsObject(pathPrefix, [], callback);
     }, callback);
 };
 
